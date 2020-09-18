@@ -18,6 +18,19 @@ services:
       - 18332
     networks:
       - bitcoin-network
+    environment:
+      - CONFIG_FILENAME=bitcoin.conf
+
+  bitcoin-node-mainnet:
+    build: ./bitcoin-core
+    restart: always
+    expose:
+      - 8333
+      - 8332
+    networks:
+      - bitcoin-network
+    environment:
+      - CONFIG_FILENAME=bitcoin.mainnet.conf
 
   bitcore-node:
     build: ./bitcore
@@ -66,20 +79,6 @@ services:
       - ./nginx/error.log:/etc/nginx/error_log.log
       - ./nginx/cache/:/etc/nginx/cache
       - /etc/letsencrypt/:/etc/letsencrypt/
-
-    #  bws:
-    #    build: ./bitcore/packages/bitcore-wallet-service
-    #    container_name: bws
-    #    image: bws-image
-    #    restart: always
-    #    links:
-    #      - bitcore-node
-    #    ports:
-    #      - 3232:3232
-    #    networks:
-    #      - nginx-network
-    #      - bitcoin-network
-
 
 networks:
         nginx-network:
