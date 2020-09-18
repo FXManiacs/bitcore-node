@@ -26,7 +26,7 @@ RUN set -ex \
 
 VOLUME /data
 
-COPY ./bitcoin.conf /data
+COPY ./${CONFIG_FILENAME} /data/bitcoin.conf
 
 EXPOSE 18332 18333
 
