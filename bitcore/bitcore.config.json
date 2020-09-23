@@ -14,13 +14,13 @@
           "chainSource": "p2p",
           "trustedPeers": [
             {
-              "host": "bitcoin",
-              "port": 18332
+              "host": "bitcoin-node",
+              "port": 8332
             }
           ],
           "rpc": {
-            "host": "bitcoin",
-            "port": 18333,
+            "host": "bitcoin-node",
+            "port": 8333,
             "username": "bitcoinrpc",
             "password": "Test123!"
           }
@@ -29,13 +29,13 @@
           "chainSource": "p2p",
           "trustedPeers": [
             {
-              "host": "bitcoin",
-              "port": 8332
+              "host": "bitcoin-node-mainnet",
+              "port": 18332
             }
           ],
           "rpc": {
-            "host": "bitcoin",
-            "port": 8333,
+            "host": "bitcoin-ndoe-mainnet",
+            "port": 18333,
             "username": "bitcoinrpc",
             "password": "Test123!"
           }
