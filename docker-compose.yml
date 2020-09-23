@@ -3,19 +3,21 @@ services:
   database:
     restart: always
     image: mongo:3.4-jessie
-    ports: 
+    ports:
       - 27017:27017
-    volumes: 
+    volumes:
       - /data/db:/data/db
     networks:
       - bitcoin-network
-    
+
   bitcoin-node:
     build: ./bitcoin-core
     restart: always
     expose:
       - 18333
       - 18332
+    volumes:
+      - /data-btc-testnet:/home/btc-data
     networks:
       - bitcoin-network
     environment:
@@ -27,6 +29,8 @@ services:
     expose:
       - 8333
       - 8332
+    volumes:
+      - /data-btc-mainnet:/home/btc-data
     networks:
       - bitcoin-network
     environment:
@@ -72,15 +76,22 @@ services:
   insight-nginx:
     image: nginx:latest
     container_name: insight_nginx
+    links:
+      - insight-testnet
+    networks:
+      - nginx-network
     ports:
       - 80:80
+      - 443:443
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx/conf
-      - ./nginx/error.log:/etc/nginx/error_log.log
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/log/:/var/log/nginx/
       - ./nginx/cache/:/etc/nginx/cache
       - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./.well-known/:/var/www/html/.well-known/
 
 networks:
         nginx-network:
         bitcoin-network:
+        insight-network:
           driver: bridge
