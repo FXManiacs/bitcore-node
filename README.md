@@ -3,7 +3,7 @@
 ### Clone the repository:
 
 ```
-git clone https://github.com/FXManiacs/bitcore-node.git
+sudo git clone https://github.com/FXManiacs/bitcore-node.git
 ```
 
 ### Install docker and docker-compose packages
