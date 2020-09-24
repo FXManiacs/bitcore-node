@@ -15,12 +15,12 @@
           "trustedPeers": [
             {
               "host": "bitcoin-node",
-              "port": 8332
+              "port": 8333
             }
           ],
           "rpc": {
             "host": "bitcoin-node",
-            "port": 8333,
+            "port": 8332,
             "username": "bitcoinrpc",
             "password": "Test123!"
           }
@@ -30,12 +30,12 @@
           "trustedPeers": [
             {
               "host": "bitcoin-node-mainnet",
-              "port": 18332
+              "port": 18333
             }
           ],
           "rpc": {
-            "host": "bitcoin-ndoe-mainnet",
-            "port": 18333,
+            "host": "bitcoin-node-mainnet",
+            "port": 18332,
             "username": "bitcoinrpc",
             "password": "Test123!"
           }
